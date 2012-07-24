@@ -28,7 +28,7 @@ public class RouteShareLayout extends Composite {
      * @author Joachim Van der Auwera
      */
     interface ApplicationLayoutUiBinder extends UiBinder<Widget, RouteShareLayout> {
-
+        // built by GWT.create
     }
 
     private static final ApplicationLayoutUiBinder UI_BINDER = GWT.create( ApplicationLayoutUiBinder.class );
@@ -41,8 +41,9 @@ public class RouteShareLayout extends Composite {
     public RouteShareLayout() {
         initWidget( UI_BINDER.createAndBindUi( this ) );
         MapPresenter mapPresenter = INJECTOR.getMapPresenter();
-        mapPresenter.initialize( "puregwt-app", "mapOsm" );
+        mapPresenter.initialize( "routeshare", "mapMain" );
         mapPresenter.getMapRenderer().setAnimationMillis( 300 );
+        mapPresenter.addMapGadget( new MenuMapGadget() );
         ResizableMapLayout mapLayout = new ResizableMapLayout( mapPresenter );
         contentPanel.setWidget( mapLayout );
     }

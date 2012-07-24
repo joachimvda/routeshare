@@ -54,6 +54,7 @@ public class ResizableMapLayout implements IsWidget {
         // Add an automatic resize handler to set the correct size when the window resizes:
         Window.addResizeHandler( new ResizeHandler() {
 
+            @Override
             public void onResize( ResizeEvent event ) {
                 applySize();
             }
@@ -96,17 +97,19 @@ public class ResizableMapLayout implements IsWidget {
     // ------------------------------------------------------------------------
 
     private boolean applySize() {
-        int width = layout.getOffsetWidth();
-        int height = layout.getOffsetHeight();
-        if ( width > 10 && height > 10 ) {
-            mapPresenter.setSize( width, height );
-            try {
-                mapPresenter.getViewPort().applyBounds( mapPresenter.getViewPort().getBounds() );
-            } catch ( Throwable t ) {
-                Log.logWarn( "Could not center map..." + t.getMessage() );
-                return false;
+        if ( mapPresenter.getViewPort().isInitialized() ) {
+            int width = layout.getOffsetWidth();
+            int height = layout.getOffsetHeight();
+            if ( width > 50 && height > 50 ) {
+                mapPresenter.setSize( width, height );
+                try {
+                    mapPresenter.getViewPort().applyBounds( mapPresenter.getViewPort().getBounds() );
+                } catch ( Throwable t ) {
+                    Log.logWarn( "Could not center map..." + t.getMessage() );
+                    return false;
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -118,6 +121,7 @@ public class ResizableMapLayout implements IsWidget {
      */
     private class RedrawMapInitializationHandler implements MapInitializationHandler {
 
+        @Override
         public void onMapInitialized( MapInitializationEvent event ) {
             applySize();
         }

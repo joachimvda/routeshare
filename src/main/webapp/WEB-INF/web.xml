@@ -16,7 +16,7 @@
             classpath:org/geomajas/plugin/rasterizing/DefaultRasterizedPipelines.xml
             WEB-INF/applicationContext.xml
             WEB-INF/layerOsm.xml
-            WEB-INF/mapOsm.xml
+            WEB-INF/mapMain.xml
         </param-value>
     </context-param>
 

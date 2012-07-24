@@ -17,7 +17,7 @@ import org.geomajas.puregwt.client.GeomajasGinjector;
  * @author Joachim Van der Auwera
  */
 @GinModules( GeomajasEditorModule.class )
-public interface RoutShareGinjector extends GeomajasGinjector {
+public interface RouteShareGinjector extends GeomajasGinjector {
 
     GeometryEditorFactory getGeometryEditorFactory();
 
