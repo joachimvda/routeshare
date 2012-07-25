@@ -10,6 +10,7 @@
     <inherits name="com.google.gwt.user.theme.standard.Standard"/>
     <inherits name="org.geomajas.puregwt.GeomajasClientImpl"/>
     <inherits name="org.geomajas.plugin.editing.puregwt.Editing"/>
+    <inherits name="org.geomajas.puregwt.theme.GeomajasDefaultTheme" />
     <inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>
 
     <!-- add required languages
